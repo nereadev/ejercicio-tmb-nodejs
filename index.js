@@ -1,5 +1,6 @@
 const { program } = require("commander");
 const inquirer = require("inquirer");
+const chalk = require("chalk");
 
 inquirer
   .prompt([
@@ -10,7 +11,15 @@ inquirer
       choices: ["bus", "metro"]
     }
   ])
-  .then(respuesta => { console.log(respuesta); });
+  .then(respuesta => {
+    if (respuesta.transporte === "bus") {
+      console.log(chalk.yellow("No tenemos información dispoinible sobre los buses +info: https://www.tmb.cat/es/home"));
+      process.exit(0);
+    }
+    if (respuesta.transporte === "metro") {
+      console.log("adios");
+    }
+  });
 
 /* program
   .option("-t, --transporte <transporte>", "¿Qué tipo de transporte quiere consultar?");
