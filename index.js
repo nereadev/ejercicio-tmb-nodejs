@@ -16,7 +16,7 @@ inquirer
       process.exit(0);
     }
     if (respuesta.linea === paradaSeleccionada.line) {
-      console.log(`
+      console.log(chalk[colorElegido]`
         Línea: ${paradaSeleccionada.line}.
         Destino: ${paradaSeleccionada.destination}.
         Tiempo de espera: ${paradaSeleccionada["t-in-min"]} min.`);
@@ -29,13 +29,9 @@ inquirer
   });
 
 program
-  .option("-c, --color#548273 <color>")
-  .option("-a, --abrev <abreviacion");
+  .option("-c, --color <color>")
+  .option("-a, --abrev");
 program.parse(process.argv);
 const options = program.opts();
-if (options.color) {
-  console.log("color");
-}
-if (options.abrev) {
-  console.log("abreviacion");
-}
+// la opción red será de momento el color por defecto
+const colorElegido = `${options.color || "red"}`;
