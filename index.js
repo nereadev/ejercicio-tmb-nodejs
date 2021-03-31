@@ -37,14 +37,17 @@ inquirer
     }
   });
 
-/* program
-  .option("-t, --transporte <transporte>", "¿Qué tipo de transporte quiere consultar?");
+program
+  .option("-c, --color <color>")
+  .option("-a, --abrev <abreviacion");
 
 program.parse(process.argv);
 
 const options = program.opts();
 
-if (options.transporte) {
-  console.log("hola");
+if (options.color) {
+  console.log("color");
 }
- */
+if (options.abrev) {
+  console.log("abreviacion");
+}
