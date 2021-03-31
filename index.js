@@ -23,6 +23,8 @@ inquirer
     } else if (respuesta.linea !== paradaSeleccionada.line && respuesta.info) {
       console.log(chalk.red.bold("No existe la línea."));
       process.exit(0);
+    } else {
+      process.exit(0);
     }
   });
 
