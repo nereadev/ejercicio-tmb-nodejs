@@ -7,7 +7,7 @@ inquirer
     {
       name: "transporte",
       type: "list",
-      message: "Qué tipo de transporte quiere consultar?",
+      message: "¿Qué tipo de transporte quiere consultar?",
       choices: ["bus", "metro"]
     }
   ])
@@ -17,7 +17,12 @@ inquirer
       process.exit(0);
     }
     if (respuesta.transporte === "metro") {
-      console.log("adios");
+      inquirer.prompt([{
+        name: "metro",
+        type: "checkbox",
+        message: "¿Qué información extra quiere obtener de cada parada?",
+        choices: ["Coordenadas", "Fecha de inauguración"]
+      }]);
     }
   });
 
