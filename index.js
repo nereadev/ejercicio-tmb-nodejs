@@ -1,4 +1,5 @@
 const { program } = require("commander");
+const inquirer = require("inquirer");
 
 program
   .option("-t, --transporte <transporte>", "¿Qué tipo de transporte quiere consultar?");
