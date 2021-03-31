@@ -1,0 +1,39 @@
+{
+  "status": "success",
+  "data": {
+    "ibus": [
+      {
+        "routeId": "0111",
+        "line": "11",
+        "text-ca": "imminent",
+        "t-in-s": 30,
+        "destination": "Trinitat Vella",
+        "t-in-min": 0
+      },
+      {
+        "routeId": "2310",
+        "line": "V31",
+        "text-ca": "1 min",
+        "t-in-s": 81,
+        "destination": "Trinitat Vella",
+        "t-in-min": 1
+      },
+      {
+        "routeId": "1261",
+        "line": "126",
+        "text-ca": "4 min",
+        "t-in-s": 244,
+        "destination": "Trinitat Vella",
+        "t-in-min": 4
+      },
+      {
+        "routeId": "1270",
+        "line": "127",
+        "text-ca": "16 min",
+        "t-in-s": 975,
+        "destination": "Roquetes",
+        "t-in-min": 16
+      }
+    ]
+  }
+}
