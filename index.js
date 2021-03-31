@@ -2,7 +2,17 @@ const { program } = require("commander");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const fetch = require("node-fetch");
+require("dotenv").config();
 const arrayPreguntas = require("./arrayPreguntas.js");
+
+const parada = 3402;
+const url = `${process.env.API_URL}${parada}?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}`;
+fetch(url)
+  .then(respuesta => respuesta.json());
+/*   .then(json => console.log(json));
+ */
+
+// PRUEBA SIN API, linea 11
 const paradas = require("./paradas.json");
 
 const paradaSeleccionada = paradas.data.ibus;
