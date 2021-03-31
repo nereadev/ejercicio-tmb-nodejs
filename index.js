@@ -5,8 +5,9 @@ inquirer
   .prompt([
     {
       name: "transporte",
-      type: "string",
-      message: "Qué tipo de transporte quiere consultar?"
+      type: "list",
+      message: "Qué tipo de transporte quiere consultar?",
+      choices: ["bus", "metro"]
     }
   ])
   .then(respuesta => { console.log(respuesta); });
