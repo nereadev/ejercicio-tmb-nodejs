@@ -1,6 +1,7 @@
 const { program } = require("commander");
 const inquirer = require("inquirer");
 const chalk = require("chalk");
+const fetch = require("node-fetch");
 
 inquirer
   .prompt([
@@ -38,7 +39,7 @@ inquirer
   });
 
 program
-  .option("-c, --color <color>")
+  .option("-c, --color#548273 <color>")
   .option("-a, --abrev <abreviacion");
 
 program.parse(process.argv);
