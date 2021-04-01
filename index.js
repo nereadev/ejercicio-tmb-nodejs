@@ -5,18 +5,12 @@ const fetch = require("node-fetch");
 require("dotenv").config();
 const arrayPreguntas = require("./arrayPreguntas.js");
 
-const parada = 3402;
-const url = `${process.env.API_URL}${parada}?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}`;
-fetch(url)
-  .then(respuesta => respuesta.json());
-/*   .then(json => console.log(json));
- */
-
-// PRUEBA SIN API, linea 11
-const paradas = require("./paradas.json");
-
-const paradaSeleccionada = paradas.data.ibus;
-console.log(paradaSeleccionada.line);
+const url = `${process.env.API_URL}?app_id=${process.env.API_ID}&app_key=${process.env.API_KEY}`;
+const consultarLineasApi = () => {
+  fetch(url)
+    .then(respuesta => respuesta.json())
+    .then(json => console.log(json));
+};
 
 inquirer
   .prompt(arrayPreguntas)
@@ -25,17 +19,18 @@ inquirer
       console.log(chalk.yellow("No tenemos información dispoinible sobre los buses +info: https://www.tmb.cat/es/home"));
       process.exit(0);
     }
-    if (respuesta.linea === paradaSeleccionada.line) {
-      console.log(chalk[colorElegido]`
-        Línea: ${paradaSeleccionada.line}.
-        Destino: ${paradaSeleccionada.destination}.
-        Tiempo de espera: ${paradaSeleccionada["t-in-min"]} min.`);
-    } else if (respuesta.linea !== paradaSeleccionada.line && respuesta.info) {
-      console.log(chalk.red.bold("No existe la línea."));
-      process.exit(0);
-    } else {
-      process.exit(0);
-    }
+    consultarLineasApi();
+    /*   if (respuesta.linea === paradaSeleccionada.line) {
+        console.log(chalk[colorElegido]`
+          Línea: ${paradaSeleccionada.line}.
+          Destino: ${paradaSeleccionada.destination}.
+          Tiempo de espera: ${paradaSeleccionada["t-in-min"]} min.`);
+      } else if (respuesta.linea !== paradaSeleccionada.line && respuesta.info) {
+        console.log(chalk.red.bold("No existe la línea."));
+        process.exit(0);
+      } else {
+        process.exit(0);
+      } */
   });
 
 program
